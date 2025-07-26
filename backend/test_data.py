@@ -1,15 +1,19 @@
 import mysql.connector
 
 cnx = mysql.connector.connect(
-    user='root',
-    password='Kollati@2004',
-    host='localhost',
-    database='easytradez'
+    user="root", password="Kollati@2004", host="localhost", database="easytradez"
 )
 cursor = cnx.cursor()
 
 # Example: count rows in each table
-tables = ['products', 'orders', 'users', 'order_items', 'inventory_items', 'distribution_centers']
+tables = [
+    "products",
+    "orders",
+    "users",
+    "order_items",
+    "inventory_items",
+    "distribution_centers",
+]
 for table in tables:
     cursor.execute(f"SELECT COUNT(*) FROM {table}")
     count = cursor.fetchone()[0]
